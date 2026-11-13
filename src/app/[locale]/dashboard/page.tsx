@@ -1,55 +1,20 @@
-import { getServerSession } from 'next-auth';
+import Link from 'next/link';
 import { redirect } from 'next/navigation';
-import { getTranslations } from 'next-intl/server';
+import { getServerSession } from 'next-auth';
+import { ArrowUpLeft, CalendarDays, HeartPulse } from 'lucide-react';
+import { authOptions } from '@/lib/auth';
+import AppointmentsPanel from '@/components/AppointmentsPanel';
 
 export default async function DashboardPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'Dashboard' });
-  
-  // حماية الصفحة: التأكد من أن المستخدم مسجل دخول، وإلا يتم تحويله لصفحة الدخول
-  const session = await getServerSession();
-  if (!session) {
-    redirect(`/${locale}/login`);
-  }
+  const session = await getServerSession(authOptions);
+  if (!session?.user?.odooUid) redirect(`/${locale}/login`);
+  if (session.user.role === 'admin') redirect(`/${locale}/admin`);
+  const isArabic = locale === 'ar';
 
-  // هنا يمكنك إضافة استدعاء للـ API الخاص بـ Odoo لجلب مواعيد المريض
-  // const appointments = await fetchAppointmentsFromOdoo(session.user.id);
-
-  return (
-    <div className="space-y-6">
-      <header className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">{t('dashboard_title')} {/* "لوحة التحكم" */}</h1>
-        <p className="text-slate-500">{t('welcome')}, {session.user?.name}</p>
-      </header>
-
-      {/* كروت الإحصائيات أو المواعيد */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        {/* كارت المواعيد القادمة */}
-        <div className="p-6 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-gray-100 dark:border-slate-800">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="p-3 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg">
-              📅
-            </div>
-            <h2 className="text-xl font-semibold">{t('upcoming_appointments')}</h2>
-          </div>
-          <p className="text-3xl font-bold">2</p>
-          <p className="text-sm text-slate-500 mt-2">موعدك القادم: غداً الساعة 4:00 م</p>
-        </div>
-
-        {/* كارت الملف الطبي */}
-        <div className="p-6 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-gray-100 dark:border-slate-800">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="p-3 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-lg">
-              📁
-            </div>
-            <h2 className="text-xl font-semibold">{t('medical_records')}</h2>
-          </div>
-          <p className="text-sm text-slate-500 mt-2">عرض التقارير والروشتات السابقة من المستشفيات.</p>
-          <button className="mt-4 text-blue-600 hover:underline text-sm font-medium">عرض الملف</button>
-        </div>
-
-      </div>
-    </div>
-  );
+  return <div className="mx-auto max-w-5xl py-5 sm:py-10">
+    <Link href={`/${locale}/hospitals`} className="inline-flex items-center gap-2 text-sm font-semibold text-muted hover:text-brand"><ArrowUpLeft size={17} aria-hidden="true" />{isArabic ? 'حجز موعد جديد' : 'Book a new visit'}</Link>
+    <section className="mt-5 rounded-[2rem] bg-hero p-6 text-white sm:p-9"><div className="flex items-center gap-4"><span className="flex size-12 items-center justify-center rounded-2xl bg-brand text-teal-100"><HeartPulse aria-hidden="true" /></span><div><p className="text-xs text-teal-200">{isArabic ? 'لوحة المريض' : 'Patient portal'}</p><h1 className="mt-1 text-2xl font-extrabold">{isArabic ? `أهلًا، ${session.user.name ?? ''}` : `Welcome, ${session.user.name ?? ''}`}</h1></div></div><p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300">{isArabic ? 'تابع مواعيدك المرتبطة بحساب Odoo، واستكشف مواعيد جديدة عند الحاجة.' : 'View appointments linked to your Odoo account and browse available visits.'}</p></section>
+    <section className="mt-8"><div className="mb-4 flex items-center gap-2"><CalendarDays className="text-brand" size={19} aria-hidden="true" /><h2 className="text-xl font-extrabold text-ink">{isArabic ? 'مواعيدي' : 'My appointments'}</h2></div><AppointmentsPanel /></section>
+  </div>;
 }
