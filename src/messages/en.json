@@ -1,0 +1,7 @@
+{
+  "Metadata": {"home_title": "SmartCare | Your healthcare", "home_description": "Book medical appointments with ease using SmartCare."},
+  "Home": {"hero_title": "Healthcare, made easier", "hero_subtitle": "Book an appointment at a trusted hospital and manage your health journey with SmartCare."},
+  "Booking": {"success_message": "Your booking request was submitted.", "error_message": "We could not submit your booking. Please try again.", "login_required": "Sign in to book an appointment.", "title": "Book an appointment", "hospital_label": "Hospital", "hospital_1": "SmartCare Hospital", "hospital_2": "City Hospital", "loading": "Submitting...", "submit_btn": "Book appointment"},
+  "Auth": {"login_title": "Sign in", "login_with_google": "Continue with Google", "or": "or", "email_placeholder": "Email address", "password_placeholder": "Password", "login_btn": "Sign in"},
+  "Dashboard": {"dashboard_title": "Dashboard", "welcome": "Welcome", "upcoming_appointments": "Upcoming appointments", "medical_records": "Medical records"}
+}

@@ -2,23 +2,26 @@ import { NextIntlClientProvider } from 'next-intl';
 import { ThemeProvider } from 'next-themes';
 import Link from 'next/link';
 import ThemeToggle from '@/components/ThemeToggle';
+import Providers from '@/components/Providers';
 import '@/app/globals.css';
 
 export default async function LocaleLayout({
   children,
-  params: { locale }
+  params
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
   // جلب نصوص الترجمة بناءً على اللغة الحالية
-  const messages = (await import(`../../../messages/${locale}.json`)).default;
+  const messages = (await import(`../../messages/${locale}.json`)).default;
   const direction = locale === 'ar' ? 'rtl' : 'ltr';
 
   return (
     <html lang={locale} dir={direction} suppressHydrationWarning>
       <body className="bg-gray-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen transition-colors duration-300">
         <NextIntlClientProvider locale={locale} messages={messages}>
+          <Providers>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             
             {/* شريط التنقل الرئيسي (Navbar) */}
@@ -55,6 +58,7 @@ export default async function LocaleLayout({
             </main>
 
           </ThemeProvider>
+          </Providers>
         </NextIntlClientProvider>
       </body>
     </html>

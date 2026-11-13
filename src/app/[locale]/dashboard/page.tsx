@@ -2,7 +2,8 @@ import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 
-export default async function DashboardPage({ params: { locale } }: { params: { locale: string } }) {
+export default async function DashboardPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Dashboard' });
   
   // حماية الصفحة: التأكد من أن المستخدم مسجل دخول، وإلا يتم تحويله لصفحة الدخول

@@ -1,0 +1,7 @@
+{
+  "Metadata": {"home_title": "سمارت كير | رعايتك الصحية", "home_description": "احجز موعدك الطبي بسهولة مع سمارت كير."},
+  "Home": {"hero_title": "رعايتك الصحية أصبحت أسهل", "hero_subtitle": "احجز كشفك الطبي في أفضل المستشفيات وأدر ملفك الصحي بسهولة عبر SmartCare."},
+  "Booking": {"success_message": "تم إرسال طلب الحجز.", "error_message": "تعذر إرسال طلب الحجز. حاول مرة أخرى.", "login_required": "سجل الدخول لحجز موعدك.", "title": "احجز كشفك الآن", "hospital_label": "المستشفى", "hospital_1": "مستشفى سمارت كير", "hospital_2": "مستشفى المدينة", "loading": "جارٍ الإرسال...", "submit_btn": "احجز موعدك"},
+  "Auth": {"login_title": "تسجيل الدخول", "login_with_google": "المتابعة باستخدام Google", "or": "أو", "email_placeholder": "البريد الإلكتروني", "password_placeholder": "كلمة المرور", "login_btn": "دخول"},
+  "Dashboard": {"dashboard_title": "لوحة التحكم", "welcome": "مرحباً", "upcoming_appointments": "المواعيد القادمة", "medical_records": "الملف الطبي"}
+}
