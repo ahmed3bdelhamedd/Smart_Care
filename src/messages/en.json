@@ -1,0 +1,32 @@
+{
+  "Metadata": {
+    "homeTitle": "SmartCare | Care, closer to you",
+    "homeDescription": "Browse published SmartCare clinics and medical appointments, then book securely through Odoo."
+  },
+  "Home": {
+    "eyebrow": "Connected healthcare, all in one place",
+    "title": "Take care of your health,",
+    "titleAccent": "with ease",
+    "description": "Explore available medical appointments, choose the right service, and complete your booking securely through Odoo.",
+    "findAppointment": "Explore appointments",
+    "patientLogin": "Patient & admin sign in",
+    "odooSync": "Live data from Odoo",
+    "secureBooking": "Official booking workflow",
+    "careCardLabel": "Your care journey",
+    "careCardTitle": "From search to confirmed visit",
+    "careStepOne": "Choose a clinic or visit type",
+    "careStepTwo": "Pick a time that works",
+    "careStepThree": "Confirm in Odoo",
+    "careCardNote": "Live appointment availability remains managed by the hospital.",
+    "catalogEyebrow": "Connected to Odoo",
+    "catalogTitle": "Appointments available to book",
+    "catalogDescription": "Appointment types currently published in SmartCare's Odoo system.",
+    "allAppointments": "View all appointments",
+    "benefitSearchTitle": "Explore services",
+    "benefitSearchText": "Find a visit type among appointments published by hospital administrators.",
+    "benefitBookTitle": "Choose your time",
+    "benefitBookText": "Select a real Odoo time slot to avoid conflicts with other bookings.",
+    "benefitSecureTitle": "Trusted data",
+    "benefitSecureText": "Accounts, permissions, and appointment records are managed through Odoo."
+  }
+}

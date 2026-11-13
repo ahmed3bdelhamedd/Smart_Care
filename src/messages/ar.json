@@ -1,0 +1,32 @@
+{
+  "Metadata": {
+    "homeTitle": "SmartCare | رعاية صحية أقرب إليك",
+    "homeDescription": "اكتشف العيادات والمواعيد الطبية المنشورة في SmartCare واحجز عبر Odoo."
+  },
+  "Home": {
+    "eyebrow": "رعاية طبية متصلة في مكان واحد",
+    "title": "اهتم بصحتك،",
+    "titleAccent": "بكل سهولة",
+    "description": "استكشف المواعيد الطبية المتاحة، واختر الخدمة المناسبة لك، وأكمل حجزك بأمان عبر نظام Odoo.",
+    "findAppointment": "استكشف المواعيد",
+    "patientLogin": "دخول المرضى والإدارة",
+    "odooSync": "بيانات مباشرة من Odoo",
+    "secureBooking": "الحجز يتم في النظام الرسمي",
+    "careCardLabel": "رحلتك الصحية",
+    "careCardTitle": "من البحث إلى موعد مؤكد",
+    "careStepOne": "اختر العيادة أو نوع الكشف",
+    "careStepTwo": "حدد الوقت المناسب لك",
+    "careStepThree": "أكد الحجز في Odoo",
+    "careCardNote": "المواعيد والتوفر الفعلي مصدرهما نظام المستشفى.",
+    "catalogEyebrow": "من Odoo مباشرة",
+    "catalogTitle": "مواعيد متاحة للحجز",
+    "catalogDescription": "أنواع المواعيد المنشورة حاليًا في نظام Odoo الخاص بـ SmartCare.",
+    "allAppointments": "عرض كل المواعيد",
+    "benefitSearchTitle": "استكشف الخدمات",
+    "benefitSearchText": "اعثر على نوع الكشف المناسب ضمن المواعيد المنشورة من إدارة المستشفى.",
+    "benefitBookTitle": "اختر موعدك",
+    "benefitBookText": "أكمل اختيار الوقت عبر جدول Odoo الفعلي لتفادي التعارض في الحجوزات.",
+    "benefitSecureTitle": "بيانات موثوقة",
+    "benefitSecureText": "تُدار الحسابات والصلاحيات والمواعيد من خلال نظام Odoo المتصل."
+  }
+}

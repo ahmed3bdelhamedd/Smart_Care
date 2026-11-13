@@ -1,21 +1,27 @@
 'use client';
-import { useTheme } from 'next-themes';
+
 import { useEffect, useState } from 'react';
+import { Moon, Sun } from 'lucide-react';
+import { useTheme } from 'next-themes';
 
 export default function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const isDark = resolvedTheme === 'dark';
 
-  // لمنع مشاكل الـ Hydration في Next.js
   useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
+  if (!mounted) return <span className="size-10 rounded-xl bg-soft" aria-hidden="true" />;
 
   return (
     <button
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className="p-2 rounded-md bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 transition-colors"
+      type="button"
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      className="inline-flex items-center gap-2 rounded-xl border border-line bg-surface px-3 py-2 text-sm font-semibold text-ink transition hover:bg-soft"
+      aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
+      aria-pressed={isDark}
     >
-      {theme === 'dark' ? '☀️ Light' : '🌙 Dark'}
+      {isDark ? <Sun size={16} aria-hidden="true" /> : <Moon size={16} aria-hidden="true" />}
+      <span>{isDark ? 'Light' : 'Dark'}</span>
     </button>
   );
 }
